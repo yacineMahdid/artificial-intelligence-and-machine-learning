@@ -9,12 +9,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import os
+import time
 
 # Following this tutorial: http://adventuresinmachinelearning.com/pytorch-tutorial-deep-learning/
 
 # We will create a 4 layer fully connected Feedforward neural network
 
-# Input layer: 24*24 = 784 neurons
+# Input layer: 28*28 = 784 neurons
 # Layer 1: 200 neurons
 # Layer 2: 200 neurons
 # Layer 3: 10 neurons
@@ -25,18 +26,12 @@ def load_image(image_path):
     normalize_image = transforms.Compose([transforms.Grayscale(),transforms.ToTensor(),transforms.Normalize((0.1307,), (0.3081,))])
     show_image = transforms.Compose([transforms.Grayscale(),transforms.ToTensor(),transforms.Normalize((0.1307,),(0.3081,)),transforms.ToPILImage()])
     image_to_show = show_image(image)
-    plt.imshow(image_to_show)
-    plt.axis("off")
-    plt.ion()
-    plt.show()
-    plt.pause(3)
 
     image_normalized = normalize_image(image)
     image_normalized = image_normalized.view(-1, 28 * 28)
     return image_normalized
 
 
-print("Setting up the Net Class")
 class Net(nn.Module):
     def __init__(self):
         super(Net, self).__init__()
@@ -122,10 +117,30 @@ def guess_number(image, loading_name):
     net.load_state_dict(torch.load(loading_name))
     net.eval()
     net_out = net(image)
-    print(net_out)
     prediction = net_out.data.max(1)[1]
-    print("This is the number: " +  str(prediction.data.numpy()[0]))
+    return prediction.data.numpy()[0]
 
-#create_nn()
-image = load_image("one.png")
-guess_number(image,"net.pt")
+
+def start(prompt):
+    print("WAKING UP!")
+    print("WHAT SHOULD I DO?")
+    print("CREATE NN (nn) OR GUESS NUMBER (gn)?")
+    task = input(prompt)
+    if task == "nn":
+        print("CREATING FFWD NEURAL NETWORK...")
+        create_nn()
+    elif task == "gn":
+        print("GIVE ME THE NUMBER!")
+        previous_answer = -1
+        while 1:
+            image = load_image("test.png")
+            current_answer = guess_number(image, "net.pt")
+            if current_answer != previous_answer:
+                print("I THINK THE NUMBER IS " + str(current_answer))
+                print("DRAW ME ANOTHER!")
+                previous_answer = current_answer
+            time.sleep(2)
+
+
+start("> ")
+
