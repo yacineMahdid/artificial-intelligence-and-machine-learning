@@ -14,15 +14,14 @@
       <file leaf-file-name="mnist_dl.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mnist_dl.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="221">
+              <caret line="13" selection-start-line="13" selection-end-line="13" selection-end-column="97" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
                 <element signature="e#630#1113#0" />
                 <element signature="e#1142#1464#0" />
                 <element signature="e#1581#4237#0" />
                 <element signature="e#4283#4495#0" />
-                <element signature="e#4521#5180#0" />
               </folding>
             </state>
           </provider>
@@ -45,7 +44,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-12" />
     <option name="y" value="3" />
     <option name="width" value="1848" />
@@ -56,6 +55,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -67,7 +67,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -100,7 +99,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="2" width="1232" height="684" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26272577" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -127,6 +125,34 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/mnist_dl.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" selection-start-line="13" selection-end-line="13" selection-end-column="97" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+            <element signature="e#630#1113#0" />
+            <element signature="e#1142#1464#0" />
+            <element signature="e#1581#4237#0" />
+            <element signature="e#4283#4495#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mnist_dl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+            <element signature="e#630#1113#0" />
+            <element signature="e#1142#1464#0" />
+            <element signature="e#1581#4237#0" />
+            <element signature="e#4283#4495#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mnist_dl.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2244">
           <caret line="132" column="33" selection-start-line="132" selection-start-column="33" selection-end-line="132" selection-end-column="33" />
           <folding>
@@ -135,7 +161,6 @@
             <element signature="e#1142#1464#0" />
             <element signature="e#1581#4237#0" />
             <element signature="e#4283#4495#0" />
-            <element signature="e#4521#5180#0" />
           </folding>
         </state>
       </provider>
@@ -150,7 +175,6 @@
             <element signature="e#1142#1464#0" />
             <element signature="e#1581#4237#0" />
             <element signature="e#4283#4495#0" />
-            <element signature="e#4521#5180#0" />
           </folding>
         </state>
       </provider>
@@ -165,7 +189,6 @@
             <element signature="e#1142#1464#0" />
             <element signature="e#1581#4237#0" />
             <element signature="e#4283#4495#0" />
-            <element signature="e#4521#5180#0" />
           </folding>
         </state>
       </provider>
@@ -179,15 +202,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mnist_dl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="221">
+          <caret line="13" selection-start-line="13" selection-end-line="13" selection-end-column="97" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
             <element signature="e#630#1113#0" />
             <element signature="e#1142#1464#0" />
             <element signature="e#1581#4237#0" />
             <element signature="e#4283#4495#0" />
-            <element signature="e#4521#5180#0" />
           </folding>
         </state>
       </provider>
