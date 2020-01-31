@@ -1,2 +1,2 @@
-# DeepLearning
-repo for work in deep learning (no reinforcement learning here)
+# rightbrain
+This is where I put my machine learning x Neuroscience projects!
