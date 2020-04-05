@@ -37,17 +37,25 @@ See below an example of a search tree for a small game of pacman:
 
 **IMAGE**
 
-For more information I would highly suggest the slides from the CS188 Intro to AI [2] from [UC Berkeley](https://www.berkeley.edu/)
+For more information I would highly suggest the slides from the CS188 Intro to AI **[2]** from [UC Berkeley](https://www.berkeley.edu/)
 
 ## Uninformed Search Algorithms
+Uninformed search algorithm are simple algorithm that build and parse a search tree to go from one start node to a goal node. They are called uninformed because they do not make use of an heuristic function that tells them how well the move they are taking is. They blindly follow their algorithm until they hit the goal node, get stuck (for some) or run out of time.
 
+All images in this section are taken from this deck of slides **[3]** from CS188 at UC Berkeley.
 ### Breadth First Search (BFS)
+**IMAGE**
 
 ### Depth First Search (DFS)
+**IMAGE**
 
 ### Iterative Deepening Search (IDS)
+**IMAGE**
 
 ## Informed Search Algorithms
+Informed search algorithm are a family of algorithm that builds upon the uninformed ones. The difference between the two is that this family makes use of various way of defining how good a move will be. They can make use of heuristic functions tailored for a specific task that will tell them how well a move is compared to another one. They can also have costs associated to making a move which can be used differently by different algorithm.
+
+All images in this section are taken from this deck of slides **[4]** from CS188 at UC Berkeley
 
 ### Greedy Search (GDS)
 
@@ -56,5 +64,7 @@ For more information I would highly suggest the slides from the CS188 Intro to A
 ### A* Search
 
 ## References
-1. [University of Sidney COMP3308 curiculuum](https://www.sydney.edu.au/courses/units-of-study/2020/comp/comp3308.html)
-2. [UC Berkely CS188 Intro to AI slides](http://ai.berkeley.edu/lecture_slides.html)
+1. [University of Sidney COMP3308 Curiculuum](https://www.sydney.edu.au/courses/units-of-study/2020/comp/comp3308.html)
+2. [UC Berkely CS188 Intro to AI Slides](http://ai.berkeley.edu/lecture_slides.html)
+3. [Uninformed Search Algorithm Slides](ai.berkeley.edu/slides/Lecture%202%20--%20Uninformed%20Search/SP14%20CS188%20Lecture%202%20--%20Uninformed%20Search.pptx)
+4. [Informed Search Algorithm Slides](ai.berkeley.edu/slides/Lecture%203%20--%20Informed%20Search/SP14%20CS188%20Lecture%203%20--%20Informed%20Search.pptx)
