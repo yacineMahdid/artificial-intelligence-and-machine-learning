@@ -46,11 +46,17 @@ All images in this section are taken from this deck of slides **[3]** from CS188
 ### Breadth First Search (BFS)
 ![BFS](https://github.com/yacineMahdid/artificial-intelligence-from-scratch/blob/master/AI%20Search%20Algorithm%20in%20Java/.figures/bfs.png)
 
+The strategy for bread first search is simple; it consist of looking at all the children of a given node before moving to the next node to investigate. What this will do is that the search will be conducted in stratum (as depicted in the figure above) which will be good if the goal node is not too deep in the search tree, but a big problem if the goal node is very deep.
+
 ### Depth First Search (DFS)
 ![DFS](https://github.com/yacineMahdid/artificial-intelligence-from-scratch/blob/master/AI%20Search%20Algorithm%20in%20Java/.figures/dfs.png)
 
+The depth first search strategy is the complete opposite of the depth first search; it consist in going as deep as possible in the parentage tree of the start node. For instance if the first node as 10 children, the first child will be checked first, but the next node to be investigated is the grandchild of the starting node. This means that it will take quite a while before all the children of the start node are checked. This is great if the goal node is very deep, however if it's the 10th children of the start node BFS will find it way before DFS can.
+
 ### Iterative Deepening Search (IDS)
 ![IDS](https://github.com/yacineMahdid/artificial-intelligence-from-scratch/blob/master/AI%20Search%20Algorithm%20in%20Java/.figures/ids.png)
+
+Iterative Deepening Search is a curious algorithm as it simply run DFS multiple time, but it limit it search to a stratum depth. For instance, as depicted in the figure, it will run DFS with a max level of 1. If the goal node is found it is directly returned, however if it is not found the algorithm will reiterate with a max level of 2. This seems a bit wasteful, but because the search tree is getting wider and wider as the depth increase running the same search many time is not so problematic.
 
 ## Informed Search Algorithms
 Informed search algorithm are a family of algorithm that builds upon the uninformed ones. The difference between the two is that this family makes use of various way of defining how good a move will be. They can make use of heuristic functions tailored for a specific task that will tell them how well a move is compared to another one. They can also have costs associated to making a move which can be used differently by different algorithm.
