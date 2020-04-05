@@ -3,15 +3,15 @@ In this project we will look at different type of artificial intelligence search
 
 ## Table of Content
 - [Puzzle to Solve: Three Digits Puzzle](#puzzle-to-solve-three-digits-puzzle)
-- Uninformed Search Algorithms
-  - Breadth First Search
-  - Depth First Search
-  - Iterative Deepening Search
-- Informed Search Algorithms
-  - Greedy Search
-  - Steepest Ascent Hill Climbing
-  - A*
-- References
+- [Uninformed Search Algorithms](#uninformed-search-algorithms)
+  - [Breadth First Search](#breadth-first-search-bfs)
+  - [Depth First Search](#depth-first-search-dfs)
+  - [Iterative Deepening Search](#iterative-deepening-search-ids)
+- [Informed Search Algorithms](#informed-search-algorithms)
+  - [Greedy Search](#greedy-search-gds)
+  - [Steepest Ascent Hill Climbing](#steepest-ascent-hill-climbing-hcs)
+  - [A*](#a-search)
+- [References](#references)
 
 ## Puzzle to Solve: Three Digits Puzzle
 
