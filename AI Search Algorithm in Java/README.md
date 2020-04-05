@@ -11,6 +11,7 @@ In this project we will look at different type of artificial intelligence search
   - [Greedy Search](#greedy-search-gds)
   - [Steepest Ascent Hill Climbing](#steepest-ascent-hill-climbing-hcs)
   - [A*](#a-search)
+- [Code Structure](#code-structure)
 - [References](#references)
 
 ## Puzzle to Solve: Three Digits Puzzle
@@ -66,11 +67,24 @@ All images in this section are taken from this deck of slides **[4]** from CS188
 ### Greedy Search (GDS)
 ![Greedy](https://github.com/yacineMahdid/artificial-intelligence-from-scratch/blob/master/AI%20Search%20Algorithm%20in%20Java/.figures/greedy.png)
 
+Greedy search use the heuristic function that is setup for a given environment and always pick the next best state in the possible states attainable (called the fringe). If the heuristic is very good it means that it will find the goal state very fast, however if the heurstic is approximative it might get stuck at a local optima.
+
 ### Steepest Ascent Hill Climbing (HCS)
 ![Steepest Ascent Hill Climbing](https://github.com/yacineMahdid/artificial-intelligence-from-scratch/blob/master/AI%20Search%20Algorithm%20in%20Java/.figures/steepest.png)
 
+This algorithm is similar to greedy search except that it will always find the next best node in the immediate children state. This means that the algorithm will move faster down the heurstici optimization, but often do get stuck in local optima.
+
 ### A* Search
 ![A* Search](https://github.com/yacineMahdid/artificial-intelligence-from-scratch/blob/master/AI%20Search%20Algorithm%20in%20Java/.figures/a_start.png)
+
+A* is a search algorithm that uses the power of greedy search, but also incorporate another cost which is the accumulated cost of moving through the search tree. It is usually the best algorithm to pick for a search in all the one we've seen so far.
+
+## Code Structure
+The code is structured in two main class:
+- State class: It's purpose is to modelize how a state work and how to get the children state from the current state
+- Solver class: Which uses states and implementation of the above mentioned algorithm to find a solution for the three digit puzzle problem.
+
+The solution is divided into two section. The first is the path from the start state to the goal state. The second section is each of the state that were visited by the algorithm even if they do not belong to the solution path. This last section allows us to gain more insight about how these algorithm really works.
 
 ## References
 1. [University of Sidney COMP3308 Curiculuum](https://www.sydney.edu.au/courses/units-of-study/2020/comp/comp3308.html)
