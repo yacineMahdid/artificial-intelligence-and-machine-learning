@@ -2,7 +2,7 @@
 In this project we will look at different type of artificial intelligence search strategy to solve a toy puzzle game. This include uninformed search strategy (i.e. which are not using any heuristic function) like breadth first search (BFS), depth first search (DFS) or iterative deepening search (IDS) and informed search strategy like greedy search (GDS), steepest ascent hill-climbing (HCS) and A* search algorithm. 
 
 ## Table of Content
-- Puzzle to Solve: Three Digits Puzzle
+- [Puzzle to Solve: Three Digits Puzzle](#puzzle-to-solve:-three-digits-puzzle)
 - Uninformed Search Algorithms
   - Breadth First Search
   - Depth First Search
