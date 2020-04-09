@@ -6,33 +6,30 @@ K = 3;
 reference_headset = "data/egi_location.csv";
 query_headset = "data/bp_location.csv";
 
+% load our dataset
+reference_headset = readtable(reference_headset);
+query_headset = readtable(query_headset);
 
-%% Load data and transform froms struct to matrix
-load egi_location
-EGI_positions = [];
-EGI_labels = [];
+% Normalize both headset to have [0,1] range in x,y,z coordinate
+% this needs to be done since the query headset has coordinate that are
+% not necessarly in the same range as the reference
+reference_headset = normalize_headset(reference_headset);
+reference_coordinate = [reference_headset.x reference_headset.y reference_headset.z];
 
-for i=1:size(temp,2)
-    EGI_positions = [EGI_positions; temp(i).X temp(i).Y temp(i).Z];
-    EGI_labels = char(EGI_labels,temp(i).labels);
-end
-EGI_labels(1,:)=[]; 
+query_headset = normalize_headset(query_headset);
+query_coordinate = [query_headset.x query_headset.y query_headset.z];
 
-load bp_location
-BP_positions = [];
-BP_labels = [];
+% Find the K Nearest Neighbors
+[nearest_index, distance] = knnsearch(reference_coordinate, query_coordinate,'K',K);
 
-%note: Brain Products coordinates are a scale of 10 higher than EGI
-%coordinates (range from 1-100 vs. EGI which ranges from 1-10).
-for i=1:size(temp,2)
-    BP_positions = [BP_positions; temp(i).X/10 temp(i).Y/10 temp(i).Z/10];
-    BP_labels = char(BP_labels,temp(i).labels);
-end
-BP_labels(1,:)=[];
+% TODO: Need to create the table to be able to assess how well the mapping
+% is
+% TODO: Need to modify the labels to match the best mapping
+% TODO: Need to add the option to ignore euclidean distance mapping for
+% exact match channel
 
-%% Search for 3 nearest neighbors
-[Idx,D] = knnsearch(EGI_positions,BP_positions,'K',k);
 
+%{
 %% Print table of results
 table(BP_labels,EGI_labels(Idx(:,1),:),EGI_labels(Idx(:,2),:),EGI_labels(Idx(:,3),:),...
     'VariableNames',{'Brain_Products','EGI_1st','EGI_2nd','EGI_3rd'})
@@ -47,3 +44,14 @@ scatter3(BP_positions(:,1),BP_positions(:,2),BP_positions(:,3),'filled','MarkerF
 text(BP_positions(:,1)-0.5,BP_positions(:,2)-0.5,BP_positions(:,3)-0.5,BP_labels,'Color','r','FontSize',8)
 hold off
 legend('EGI','Brain Products')
+%}
+
+function [norm_headset] = normalize_headset(headset)
+% NORMALIZE HEADSET helper function to put the data in each column in the 
+% [0,1] range.
+    % Normalize the headset using min max normalization
+    norm_headset = headset;
+    norm_headset.x = (headset.x - min(headset.x)) / (max(headset.x) - min(headset.x));
+    norm_headset.y = (headset.y - min(headset.y)) / (max(headset.y) - min(headset.y));
+    norm_headset.z = (headset.z - min(headset.z)) / (max(headset.z) - min(headset.z));
+end
