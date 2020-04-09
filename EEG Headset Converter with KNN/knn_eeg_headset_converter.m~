@@ -3,9 +3,11 @@
 
 %% Experiment Variables
 K = 3;
-reference_headset = "data/egi_location.csv";
-query_headset = "data/bp_location.csv";
+reference_headset = "egi_location.mat";
+query_headset = "bp_location.mat";
 
+%% Set k
+k = 3;
 
 %% Load data and transform froms struct to matrix
 load egi_location
