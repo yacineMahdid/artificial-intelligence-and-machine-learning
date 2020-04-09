@@ -1,9 +1,20 @@
 # EEG Headset Converter with KNN
 In this notebook we will define and build a solution to convert one headset with its own label nomenclature into another headset. This is a useful transformation to be able to use to normalize heterogeneous brain data.
 
-![EGI Headset](https://github.com/yacineMahdid/artificial-intelligence-from-scratch/blob/master/EEG%20Headset%20Converter%20with%20KNN/.figure/egi_headset_on_dummy.jpg)
+## Table of Content
+- [Code Structure](#code-structure)
+- [Headsets](#headsets)
+- [Brain Product Headset](#brain-product-headset)
+- [EGI 129 Headset](#egi-129-headset)
+- [Plan](#plan)
+- [KNN Algorithm](#knn-algorithm)
 
-## Headset
+## Code Structure
+Here we have two main script:
+- mat_to_csv.m : this one is converting the original data-structure to a csv file
+- knn_eeg_headset_converter.m : this is the core experiment code and will be discussed below, it will start with the csv file.
+
+## Headsets
 The two headset we will be using to test and assess our solution will be the Brain Product headset with 66 channels and the EGI (Philips health) headset with 129 channels. Below we will look at bird eye view of each of the headset.
 
 ### Brain Product Headset
@@ -23,7 +34,7 @@ To develop the solution we will make use of these two channel location coordinat
 
 Both are mat files and you guessed right we will develop this whole thing in `MATLAB`.
 
-## Algorithm: KNN
+## KNN Algorithm
 ![KNN Algorithm](https://github.com/yacineMahdid/artificial-intelligence-from-scratch/blob/master/EEG%20Headset%20Converter%20with%20KNN/.figure/knn_example.png)
 
 The K-Nearest-Neighbors algorithm is an non-parametric machine learning algorithm. It is super simple and in this particular case a tool well suited to do the job. The algorithm goes roughly as follow:
