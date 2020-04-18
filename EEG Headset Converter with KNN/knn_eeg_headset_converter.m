@@ -1,5 +1,4 @@
 % Yacine Mahdid April 08 2020
-% This script was adapted fom the work of Danielle Nadin at the BIAPT Lab
 
 %% Global Variable
 EUCLIDEAN_TYPE = "EUCLIDEAN_TYPE";
@@ -9,7 +8,7 @@ LABEL_FIRST_TYPE = "LABEL_FIRST_TYPE";
 % K = 10;
 reference_headset = "data/egi_location.csv";
 query_headset = "data/bp_location.csv";
-conversion_table_path = "result.csv";
+conversion_table_path = "bp_to_egi_mapping.csv";
 conversion_type = LABEL_FIRST_TYPE;
 
 % load our dataset
@@ -30,9 +29,6 @@ query_coordinate = [query_headset.x query_headset.y query_headset.z];
 
 [label_table, distance_table] = create_result_table(reference_headset, query_headset, nearest_index, distance); 
 
-% Save the result table as a csv file
-writetable(label_table,conversion_table_path,'Delimiter',',');
-
 switch conversion_type
     case EUCLIDEAN_TYPE
         conv_query_headset = convert_query_headset_euclidean(query_headset, label_table, distance_table);        
@@ -42,6 +38,12 @@ switch conversion_type
         disp("Conversion Type not supported");
         return;
 end
+
+%% Save the conversion in a bp_location, egi_location format
+bp_location = query_headset{:,1};
+egi_location = conv_query_headset(:,1);
+convertion_table = table(bp_location, egi_location);
+writetable(convertion_table,conversion_table_path,'Delimiter',',');
 
 %% Plot the Nearest Channel that was Chosen
 figure;
