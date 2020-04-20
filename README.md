@@ -1,5 +1,7 @@
-# Artificial Intelligence from Scratch
-This is a repository of artificial intelligence algorithm that were coded from scratch in different languages including Java, Python and C++. The algorithm range from classical artificial intelligence search algorithm to machine learning and deep learning algorithm. If you would like to have a certain algorithm coded and explained you are welcome to open up an [issue](https://github.com/yacineMahdid/artificial-intelligence-from-scratch/issues).
+# Artificial Intelligence and Machine Learning
+This is a repository of artificial intelligence projects I've been working on from time to time. You can find algorithm that were coded from scratch in different languages including Java, Python and C++. The algorithm range from classical artificial intelligence search algorithm to machine learning and deep learning algorithm. If you would like to have a certain algorithm coded and explained you are welcome to open up an [issue](https://github.com/yacineMahdid/artificial-intelligence-from-scratch/issues).
+
+I also have implementation of ai/ml to real world project, see the table of content below for a sneak-peak of the projects!
 
 ## Table of Content
 - [Deep Learning from Scratch in Python](https://github.com/yacineMahdid/artificial-intelligence-from-scratch/tree/master/Deep%20Learning%20from%20Scratch%20in%20Python) ⚙ : Implementation of all the components of a deep neural network including perceptron, gradientd escent, backpropagation, forward propagation etc.
