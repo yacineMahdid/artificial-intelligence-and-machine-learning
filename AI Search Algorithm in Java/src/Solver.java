@@ -1,9 +1,6 @@
 // ArrayList Imports
 import java.util.ArrayList;
-
-public class ThreeDigitsPuzzle {
-
-    public static class Solver {
+    public class Solver {
 
         // Search Variables
         int MAX_ITERATION = 1000;
@@ -457,4 +454,3 @@ public class ThreeDigitsPuzzle {
             return string_states + digits_to_string(states.get(states.size() - 1).digits);
         }
     }
-}
