@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e1168ed8-9c77-46da-8c93-b413e37a29ac" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="208" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Zr8JKbDn5HJpoKunbr7FAwpTro" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JAVA" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="create.test.in.the.same.root" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.SolverTest">
+    <configuration name="ThreeDigits" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ThreeDigits" />
+      <module name="search_algorithm" />
+      <option name="PROGRAM_PARAMETERS" value="B $PROJECT_DIR$/src/sample.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SolverTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="search_algorithm" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SolverTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SolverTest.load_inputs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="search_algorithm" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SolverTest" />
+      <option name="METHOD_NAME" value="load_inputs" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SolverTest.manhattan_distance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="search_algorithm" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SolverTest" />
+      <option name="METHOD_NAME" value="manhattan_distance" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scratch" type="Java Scratch" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Scratch" />
+      <option name="SCRATCH_FILE_URL" value="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.ThreeDigits" />
+      <item itemvalue="Java Scratch.Scratch" />
+      <item itemvalue="JUnit.SolverTest" />
+      <item itemvalue="JUnit.SolverTest.load_inputs" />
+      <item itemvalue="JUnit.SolverTest.manhattan_distance" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.SolverTest" />
+        <item itemvalue="Application.ThreeDigits" />
+        <item itemvalue="JUnit.SolverTest.load_inputs" />
+        <item itemvalue="JUnit.SolverTest.manhattan_distance" />
+        <item itemvalue="Java Scratch.Scratch" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e1168ed8-9c77-46da-8c93-b413e37a29ac" name="Default Changelist" comment="" />
+      <created>1585585779957</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585585779957</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="291" y="120" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585762269461">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state x="291" y="120" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1533.873@67.27.1533.873" timestamp="1585762269461" />
+    <state x="204" y="27" width="1238" height="873" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1587828012303">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state x="204" y="27" width="1238" height="873" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.27.1533.873@67.27.1533.873" timestamp="1587828012303" />
+    <state x="616" y="220" width="424" height="484" key="FileChooserDialogImpl" timestamp="1587827513883">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state x="616" y="220" width="424" height="484" key="FileChooserDialogImpl/67.27.1533.873@67.27.1533.873" timestamp="1587827513883" />
+    <state width="1487" height="287" key="GridCell.Tab.0.bottom" timestamp="1587828548325">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state width="1487" height="287" key="GridCell.Tab.0.bottom/67.27.1533.873@67.27.1533.873" timestamp="1587828548325" />
+    <state width="1487" height="287" key="GridCell.Tab.0.center" timestamp="1587828548325">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state width="1487" height="287" key="GridCell.Tab.0.center/67.27.1533.873@67.27.1533.873" timestamp="1587828548325" />
+    <state width="1487" height="287" key="GridCell.Tab.0.left" timestamp="1587828548324">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state width="1487" height="287" key="GridCell.Tab.0.left/67.27.1533.873@67.27.1533.873" timestamp="1587828548324" />
+    <state width="1487" height="287" key="GridCell.Tab.0.right" timestamp="1587828548325">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state width="1487" height="287" key="GridCell.Tab.0.right/67.27.1533.873@67.27.1533.873" timestamp="1587828548325" />
+    <state width="1487" height="272" key="GridCell.Tab.1.bottom" timestamp="1586027735349">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state width="1487" height="272" key="GridCell.Tab.1.bottom/67.27.1533.873@67.27.1533.873" timestamp="1586027735349" />
+    <state width="1487" height="272" key="GridCell.Tab.1.center" timestamp="1586027735348">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state width="1487" height="272" key="GridCell.Tab.1.center/67.27.1533.873@67.27.1533.873" timestamp="1586027735348" />
+    <state width="1487" height="272" key="GridCell.Tab.1.left" timestamp="1586027735348">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state width="1487" height="272" key="GridCell.Tab.1.left/67.27.1533.873@67.27.1533.873" timestamp="1586027735348" />
+    <state width="1487" height="272" key="GridCell.Tab.1.right" timestamp="1586027735349">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state width="1487" height="272" key="GridCell.Tab.1.right/67.27.1533.873@67.27.1533.873" timestamp="1586027735349" />
+    <state x="167" y="125" width="1333" height="675" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1585743149719">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state x="167" y="125" width="1333" height="675" key="com.intellij.history.integration.ui.views.FileHistoryDialog/67.27.1533.873@67.27.1533.873" timestamp="1585743149719" />
+    <state x="489" y="291" key="com.intellij.ide.util.TipDialog" timestamp="1587827696685">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state x="489" y="291" key="com.intellij.ide.util.TipDialog/67.27.1533.873@67.27.1533.873" timestamp="1587827696685" />
+    <state x="505" y="358" width="636" height="224" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1585595891044">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state x="505" y="358" width="636" height="224" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/67.27.1533.873@67.27.1533.873" timestamp="1585595891044" />
+    <state x="607" y="179" width="442" height="566" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1585971776068">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state x="607" y="179" width="442" height="566" key="com.intellij.testIntegration.createTest.CreateTestDialog/67.27.1533.873@67.27.1533.873" timestamp="1585971776068" />
+    <state x="497" y="108" width="672" height="676" key="search.everywhere.popup" timestamp="1586045408613">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state x="497" y="108" width="672" height="676" key="search.everywhere.popup/67.27.1533.873@67.27.1533.873" timestamp="1586045408613" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/search_algorithm$ThreeDigits.ic" NAME="ThreeDigits Coverage Results" MODIFIED="1585596007206" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>
