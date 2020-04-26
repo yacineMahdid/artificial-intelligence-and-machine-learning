@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ThreeDigitsPuzzleTest {
+class SolverTest {
 
     private static String start_state;
     private static String goal_state;
@@ -23,7 +23,7 @@ class ThreeDigitsPuzzleTest {
     public void canCreateSolverWithRightParam() {
         Exception ex = null;
         try {
-            new ThreeDigitsPuzzle.Solver(start_state, goal_state, forbidden_state);
+            new Solver(start_state, goal_state, forbidden_state);
         } catch (Exception e) {
             ex = e;
         }
@@ -38,7 +38,7 @@ class ThreeDigitsPuzzleTest {
         String expanded_result = "320,220,420,310,330,321,210,230,221,410,430,421,210,410,311,230,430,331,221,421,311,331,110";
         String real_result = solution_result + "\n" + expanded_result;
 
-        ThreeDigitsPuzzle.Solver solver = new ThreeDigitsPuzzle.Solver(start_state, goal_state, forbidden_state);
+        Solver solver = new Solver(start_state, goal_state, forbidden_state);
         String estimated_result = solver.solve(search_type);
 
         assertResultIsCorrect(search_type, estimated_result, real_result);
@@ -53,7 +53,7 @@ class ThreeDigitsPuzzleTest {
         String expanded_result = "320,220,210,110";
         String real_result = solution_result + "\n" + expanded_result;
 
-        ThreeDigitsPuzzle.Solver solver = new ThreeDigitsPuzzle.Solver(start_state, goal_state, forbidden_state);
+        Solver solver = new Solver(start_state, goal_state, forbidden_state);
         String estimated_result = solver.solve(search_type);
 
         assertResultIsCorrect(search_type, estimated_result, real_result);
@@ -67,7 +67,7 @@ class ThreeDigitsPuzzleTest {
         String expanded_result = "320,320,220,420,310,330,321,320,220,210,230,221,420,410,430,421,310,210,410,311,330,230,430,331,321,221,421,311,331,320,220,210,110";
         String real_result = solution_result + "\n" + expanded_result;
 
-        ThreeDigitsPuzzle.Solver solver = new ThreeDigitsPuzzle.Solver(start_state, goal_state, forbidden_state);
+        Solver solver = new Solver(start_state, goal_state, forbidden_state);
         String estimated_result = solver.solve(search_type);
 
         assertResultIsCorrect(search_type, estimated_result, real_result);
@@ -95,7 +95,7 @@ class ThreeDigitsPuzzleTest {
         String expanded_result = "320,310,210,211,111,110";
         String real_result = solution_result + "\n" + expanded_result;
 
-        ThreeDigitsPuzzle.Solver solver = new ThreeDigitsPuzzle.Solver(start_state, goal_state, forbidden_state);
+        Solver solver = new Solver(start_state, goal_state, forbidden_state);
         String estimated_result = solver.solve(search_type);
 
         assertResultIsCorrect(search_type, estimated_result, real_result);
@@ -109,7 +109,7 @@ class ThreeDigitsPuzzleTest {
         String expanded_result = "320,310,210";
         String real_result = solution_result + "\n" + expanded_result;
 
-        ThreeDigitsPuzzle.Solver solver = new ThreeDigitsPuzzle.Solver(start_state, goal_state, forbidden_state);
+        Solver solver = new Solver(start_state, goal_state, forbidden_state);
         String estimated_result = solver.solve(search_type);
 
         assertResultIsCorrect(search_type, estimated_result, real_result);
@@ -123,7 +123,7 @@ class ThreeDigitsPuzzleTest {
         String expanded_result = "320,310,210,220,210,110";
         String real_result = solution_result + "\n" + expanded_result;
 
-        ThreeDigitsPuzzle.Solver solver = new ThreeDigitsPuzzle.Solver(start_state, goal_state, forbidden_state);
+        Solver solver = new Solver(start_state, goal_state, forbidden_state);
         String estimated_result = solver.solve(search_type);
 
         assertResultIsCorrect(search_type, estimated_result, real_result);
