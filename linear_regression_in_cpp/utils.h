@@ -9,9 +9,34 @@
 #include <cstring>
 #include <ctime>
 
-#include "Dataset.h"
+class Dataset{
+    public:
+        float **X;
+        float *y;
+        int number_predictor;
+        int length;
 
-#include "Weights.h"
+        Dataset();
+        Dataset(float **X_train,float *y_train, int length_train, int number_predictor_train);
+        void copy(const Dataset &data);
+        ~Dataset();
+
+        void print_dataset();
+};
+
+class Weights{
+    private:
+        int MAX_WEIGHTS;
+
+    public:
+        float* values;
+        int number_weights;
+
+        Weights();
+        void init(int number_predictor, int random_init);
+        ~Weights();
+        void update(Dataset data, float *y_pred, float learning_rate);
+};
 
 Dataset read_csv(const char* filename);
 int make_csv(const char* filename, Weights weights);

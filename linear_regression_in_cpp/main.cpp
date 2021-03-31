@@ -1,7 +1,9 @@
 #include "utils.h"
 
-
-
+// Experiment Variables
+const char* FILENAME = "test.csv";
+int MAX_ITERATION = 1000;
+float LEARNING_RATE = 0.1; 
 
 // Model class for MSE Linear Regression
 // Update: https://en.wikipedia.org/wiki/Linear_regression
@@ -81,25 +83,19 @@ class LinearRegressionModel{
 int main(){
     // Variable Initialization
     int length_train;
-    const char* filename = "test.csv";
-    std::cout << "Reading CSV \n";
-    Dataset data = read_csv(filename);
-
-
-    // Regression Variables
-    int max_iteration = 1000;
-    float learning_rate = 0.1;
+    std::cout << "Reading CSV file" << FILENAME << "\n";
+    Dataset data = read_csv(FILENAME);
 
     // Training
     std::cout << "Making LinearRegressionModel \n";
     LinearRegressionModel linear_reg = LinearRegressionModel(data);
     std::cout << "Training \n";
-    linear_reg.train(max_iteration, learning_rate);
+    linear_reg.train(MAX_ITERATION, LEARNING_RATE);
     
+    // Testing TODO: Testing is a bit clumsy right now, we could just keep a hold out of the data
     std::cout << "Testing \n";
-    // Testing
     float X_test[2];
-    X_test[0] = 1;
+    X_test[0] = 1; 
     X_test[1] = 123;
     float y_test = linear_reg.predict(X_test);
     linear_reg.print_weights();

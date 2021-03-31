@@ -1,5 +1,92 @@
 #include "utils.h"
 
+/****************** DATASET ******************/
+
+Dataset::Dataset(){
+
+}
+
+Dataset::Dataset(float **X_train,float *y_train, int length_train, int number_predictor_train){
+    X = (float **) malloc(sizeof(float*)*length_train);
+    for(int i = 0; i < length_train; i++){
+        X[i] = (float *) malloc(sizeof(float)*number_predictor_train);
+        std::memcpy(X[i], X_train[i], sizeof(float)*number_predictor_train);
+    }
+
+    y = (float *) malloc(sizeof(float)*length_train);
+    std::memcpy(y, y_train, sizeof(float)*length_train);
+    
+    length = length_train;
+    number_predictor = number_predictor_train;
+}
+
+void Dataset::copy(const Dataset &data){
+    
+    X = (float **) malloc(sizeof(float*)*data.length);
+    for(int i = 0; i < data.length; i++){
+        X[i] = (float *) malloc(sizeof(float)*data.number_predictor);
+        std::memcpy(X[i], data.X[i], sizeof(float)*data.number_predictor);
+    }
+
+    y = (float *) malloc(sizeof(float)*data.length);
+    std::memcpy(y, data.y, sizeof(float)*data.length);
+    
+    length = data.length;
+    number_predictor = data.number_predictor;
+}
+
+Dataset::~Dataset(){
+    
+}
+
+void Dataset::print_dataset(){
+    
+    for(int i = 0; i < length; i++){
+        printf("row = %d: \n",i);
+        for(int j = 0; j < number_predictor; j++){
+            printf("X%d = %f\n",j,X[i][j]);
+        }
+        printf("Y = %f\n",y[i]);
+    }
+
+    
+}
+
+
+/****************** WEIGHTS ******************/
+
+Weights::Weights(){};
+
+void Weights::init(int number_predictor, int random_init){
+    // Random Init Variables
+    MAX_WEIGHTS = 100;
+    srand(time(0));  // random number generator
+
+    number_weights = number_predictor ;
+    values = (float *) std::malloc(sizeof(float)*number_weights);
+    for(int i=0; i<number_weights; i++){
+        if(random_init == 1){
+            values[i] = (rand() % MAX_WEIGHTS);
+        }else{
+            values[i] = 0;
+        }
+    }
+}
+
+Weights::~Weights(){
+}
+
+void Weights::update(Dataset data, float *y_pred, float learning_rate){
+    float multiplier = learning_rate/data.length;
+    // Update each weights
+    for(int i = 0; i < number_weights; i++){
+        float sum = (sum_residual(data,y_pred,i));
+        printf("Sum = %f\n",sum);
+        values[i] = values[i] - multiplier*sum;
+    }
+}
+
+/****************** MISC ******************/
 
 // Misc Helper function 
 Dataset read_csv(const char* filename){
@@ -113,7 +200,6 @@ float residual_sum_of_square(float *y_pred, float *y_true, int length){
 }
 
 int calculate_r2(float *y_pred, float *y_true, int length){
-    // Taken from: https://en.wikipedia.org/wiki/Coefficient_of_determination
     float sum_squared_residual = residual_sum_of_square(y_pred,y_true,length);
     float sum_squared_total = sum_of_square(y_true,length);
     return (1 - ((sum_squared_residual/sum_squared_total)));
