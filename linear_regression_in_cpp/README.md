@@ -46,5 +46,28 @@ In order to figure out if our line is fitting properly we need some measure of f
 The definition is 
 > the proportion of the variance in the dependent variable that is predictable from the independent variable(s)
 
+## Code Structure
+We currently have quite a lot of file that are scattered around in order to build the project.
+- `Dataset.cpp` + `Dataset.h`: which contains the definition of a dataset
+- `Weights.cpp` + `Weights.h`: data structure containing the definition of a weight
+- `utils.cpp` + `utils.h`: contains helper functions along with main imports of other header files.
+- `linear_regression.cpp`: main entry point of the program contain the definition of the model
+- `test.csv`: test data without any header
+- `a.out`: the compiled program with g++
+
+## How to Run
+To compile the program you need to use g++ and run the following commands:
+```bash
+g++ linear_regression.cpp Dataset.cpp Weights.cpp utils.cpp
+```
+This will create a `a.out` file which can be run like this: `./a.out`.
+This will run the main function inside `linear_regression.cpp`
+
+## Comments and TODOs
+- [] Too much filespread for such a simple program, I should compress that down to 1 file and then spread the code in multiple only if needed.
+- [] Dataset.cpp doesn't seem to be that useful, removing this abstraction might be beneficial.
+- [] Weights.cpp also seems to be quite overkill for the complexity that we have. Will have to double check that, but there might be a way to compress that.
+- [] test.csv is a bit confusing to read since there is no header. The reading portion of the code shouldn't be too difficult to implement.
+
 ## Ressources
 - [Main tutorial I've followed](https://towardsdatascience.com/introduction-to-machine-learning-algorithms-linear-regression-14c4e325882a)
