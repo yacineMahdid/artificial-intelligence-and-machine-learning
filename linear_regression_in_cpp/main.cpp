@@ -40,19 +40,6 @@ void Dataset::copy(const Dataset &data){
 
 Dataset::~Dataset(){}
 
-void Dataset::print_dataset(){
-    
-    for(int i = 0; i < length; i++){
-        printf("row = %d: \n",i);
-        for(int j = 0; j < number_predictor; j++){
-            printf("X%d = %f\n",j,X[i][j]);
-        }
-        printf("Y = %f\n",y[i]);
-    }
-
-    
-}
-
 
 /****************** WEIGHTS ******************/
 

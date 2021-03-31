@@ -2,6 +2,7 @@
 
 // Misc Helper function 
 Dataset read_csv(const char* filename){
+
     // Variable Initialization
     float **X;
     float *y;
@@ -66,15 +67,11 @@ Dataset read_csv(const char* filename){
     return data;
 }
 
-int make_csv(const char* filename, float* weights, int number_weights, int number_simulation){
-
-}
-
-// Stats Helper function
-float mean(float *y, int length){
+// Return the arithmetic mean of an array of variable
+float mean(float *data, int length){
     float total = 0;
     for(int i = 0; i < length; i++){
-        total = total + y[i];
+        total = total + data[i];
     }
     return (total/length);
 }
