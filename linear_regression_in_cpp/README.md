@@ -67,6 +67,8 @@ This will run the main function inside `main.cpp`
 - [] Weights.cpp also seems to be quite overkill for the complexity that we have. Will have to double check that, but there might be a way to compress that.
 - [] test.csv is a bit confusing to read since there is no header. The reading portion of the code shouldn't be too difficult to implement.
 - [] Output is all over the place when the program is running. Should tone that down.
+- [] Improve the testing of the algorithm after the training phase
 
 ## Ressources
 - [Main tutorial I've followed](https://towardsdatascience.com/introduction-to-machine-learning-algorithms-linear-regression-14c4e325882a)
+- [Google Style Guide for C++](https://google.github.io/styleguide/cppguide.html#Function_Comments)
