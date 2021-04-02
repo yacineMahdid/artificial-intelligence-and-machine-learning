@@ -161,12 +161,12 @@ class LinearRegressionModel{
     // Models Variable
     float **X;
     float *y;
+    int length;
 
 
     Weights weights;
 
     public:
-    int length;
         LinearRegressionModel(float **X_, float *y_, int length_, int number_predictor){
             
             // TODO: Find a better way of initializing the model
