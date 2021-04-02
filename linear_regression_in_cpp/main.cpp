@@ -122,6 +122,7 @@ class Weights{
         float sum_residual(float **X, float *y, float *y_pred, int current_predictor,  int length){
             float total = 0;
             float residual;
+
             for(int i = 0 ; i < length; i++){
                 residual = (y_pred[i] - y[i]);
                 total = total + residual*X[i][current_predictor];
@@ -160,17 +161,22 @@ class LinearRegressionModel{
     // Models Variable
     float **X;
     float *y;
-    int length;
+
 
     Weights weights;
 
     public:
-
-        LinearRegressionModel(float **X, float *y, int length, int number_predictor){
+    int length;
+        LinearRegressionModel(float **X_, float *y_, int length_, int number_predictor){
             
-            X = X;
-            y = y;
-            length = length;
+            // TODO: Find a better way of initializing the model
+            // Right now we have the input and internal variables that are
+            // exactly the same, but have to be different name
+            // for sure there is a way to make this somewhat automatic!
+            X = X_;
+            y = y_;
+            length = length_;
+            
             weights.init(number_predictor, 0);
         }
 
@@ -179,19 +185,24 @@ class LinearRegressionModel{
             weights.print_weights();
         }
 
+        // Main training loop 
         void train(int max_iteration, float learning_rate){
             
             float *y_pred = (float *) std::malloc(sizeof(float)*length);
 
             while(max_iteration > 0){
 
-                fit(y_pred);
+                // Will predict the y given the weights and the Xs
+                for(int i = 0; i < length; i++){
+                    y_pred[i] = predict(X[i]);
+                }
+
                 weights.update(X, y, y_pred, learning_rate, length);
                 
                 float mse = mean_squared_error(y_pred, y, length);
 
                 if(max_iteration % 100 == 0){
-                    weights.print_weights();
+                    print_weights();
                     std::cout << "Iteration left: " << max_iteration << "; MSE = " << mse << "\n";
                 }
                 max_iteration--;
@@ -199,19 +210,13 @@ class LinearRegressionModel{
             free(y_pred);
         }
 
+        // Run the an array of predictor through the learned weight
         float predict(float *x){
             float prediction = 0;
                 for(int i = 0; i < weights.number_weights; i++){
                     prediction = prediction + weights.values[i]*x[i];
                 }
             return prediction;
-        }
-
-    private:
-        void fit(float *y_pred){
-            for(int i = 0; i < length; i++){
-                y_pred[i] = predict(X[i]);
-            }
         }
 };
 
@@ -225,6 +230,8 @@ int main(){
     // Training
     std::cout << "Making LinearRegressionModel \n";
     LinearRegressionModel linear_reg = LinearRegressionModel(data.X, data.y, data.length, data.number_predictor);
+    printf("Length: %d\n", linear_reg.length); // Something is off with length
+    
     std::cout << "Training \n";
     linear_reg.train(MAX_ITERATION, LEARNING_RATE);
     
@@ -237,5 +244,4 @@ int main(){
     linear_reg.print_weights();
     std::cout << "Testing for X0 = " << X_test[0] << ", X1 = " << X_test[1] << "\n";
     std::cout << "y = " << y_test << "\n"; 
-
 }
