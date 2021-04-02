@@ -7,6 +7,8 @@ float LEARNING_RATE = 0.1;
 
 /****************** DATASET ******************/
 
+// Dataset class that holds the X and y information
+// for a given csv file. Act a bit like a poor man dataframe
 class Dataset{
     public:
         float **X;
@@ -14,9 +16,9 @@ class Dataset{
         int number_predictor;
         int length;
 
-        // TODO: Why do we need to define the default constructor and destructor though?
         Dataset(){}
 
+        // Constructor when reading a CSV file
         Dataset(const char* filename){
             // Variable Initialization
             length = 0;
@@ -77,47 +79,7 @@ class Dataset{
             }
             samefile.close();
         }
-
-        Dataset(float **X_train,float *y_train, int length_train, int number_predictor_train){
-            X = (float **) malloc(sizeof(float*)*length_train);
-            for(int i = 0; i < length_train; i++){
-                X[i] = (float *) malloc(sizeof(float)*number_predictor_train);
-                std::memcpy(X[i], X_train[i], sizeof(float)*number_predictor_train);
-            }
-
-            y = (float *) malloc(sizeof(float)*length_train);
-            std::memcpy(y, y_train, sizeof(float)*length_train);
-            
-            length = length_train;
-            number_predictor = number_predictor_train;
-        }
-
-        void copy(const Dataset &data){
-            X = (float **) malloc(sizeof(float*)*data.length);
-            for(int i = 0; i < data.length; i++){
-                X[i] = (float *) malloc(sizeof(float)*data.number_predictor);
-                std::memcpy(X[i], data.X[i], sizeof(float)*data.number_predictor);
-            }
-
-            y = (float *) malloc(sizeof(float)*data.length);
-            std::memcpy(y, data.y, sizeof(float)*data.length);
-            
-            length = data.length;
-            number_predictor = data.number_predictor;
-        }
 };
-
-
-// TODO: Remove the dataset class from this function to only accept nice primitives
-float sum_residual(Dataset data, float *y_pred, int current_predictor){
-    float total = 0;
-    float residual;
-    for(int i = 0 ; i < data.length; i++){
-        residual = (y_pred[i] - data.y[i]);
-        total = total + residual*data.X[i][current_predictor];
-    }
-    return total;
-}
 
 /****************** WEIGHTS ******************/
 
@@ -146,14 +108,25 @@ class Weights{
             }
         }
 
-        void update(Dataset data, float *y_pred, float learning_rate){
-            float multiplier = learning_rate/data.length;
+        void update(float **X, float *y, float *y_pred, float learning_rate, int length){
+
+            float multiplier = learning_rate/length;
             // Update each weights
             for(int i = 0; i < number_weights; i++){
-                float sum = (sum_residual(data,y_pred,i));
+                float sum = (sum_residual(X, y, y_pred, i, length));
                 printf("Sum = %f\n",sum);
                 values[i] = values[i] - multiplier*sum;
             }
+        }
+
+        float sum_residual(float **X, float *y, float *y_pred, int current_predictor,  int length){
+            float total = 0;
+            float residual;
+            for(int i = 0 ; i < length; i++){
+                residual = (y_pred[i] - y[i]);
+                total = total + residual*X[i][current_predictor];
+            }
+            return total;
         }
 };
 
@@ -163,14 +136,20 @@ class Weights{
 class LinearRegressionModel{
 
     // Models Variable
-    Dataset data;
+    float **X;
+    float *y;
+    int length;
+
     Weights weights;
 
     public:
 
-        LinearRegressionModel(const Dataset &data_train){
-            data.copy(data_train);
-            weights.init(data.number_predictor, 0);
+        LinearRegressionModel(float **X, float *y, int length, int number_predictor){
+            
+            X = X;
+            y = y;
+            length = length;
+            weights.init(number_predictor, 0);
         }
 
         // Pretty print the weights of the model
@@ -196,15 +175,15 @@ class LinearRegressionModel{
         }
 
         void train(int max_iteration, float learning_rate){
-
-            float *y_pred = (float *) std::malloc(sizeof(float)*data.length);
+            
+            float *y_pred = (float *) std::malloc(sizeof(float)*length);
 
             while(max_iteration > 0){
 
                 fit(y_pred);
-                weights.update(data, y_pred, learning_rate);
+                weights.update(X, y, y_pred, learning_rate, length);
                 
-                float mse = mean_squared_error(y_pred,data.y,data.length);
+                float mse = mean_squared_error(y_pred, y, length);
 
                 if(max_iteration % 100 == 0){
                     print_weights();
@@ -225,8 +204,8 @@ class LinearRegressionModel{
 
     private:
         void fit(float *y_pred){
-            for(int i = 0; i < data.length; i++){
-                y_pred[i] = predict(data.X[i]);
+            for(int i = 0; i < length; i++){
+                y_pred[i] = predict(X[i]);
             }
         }
 };
@@ -240,7 +219,7 @@ int main(){
 
     // Training
     std::cout << "Making LinearRegressionModel \n";
-    LinearRegressionModel linear_reg = LinearRegressionModel(data);
+    LinearRegressionModel linear_reg = LinearRegressionModel(data.X, data.y, data.length, data.number_predictor);
     std::cout << "Training \n";
     linear_reg.train(MAX_ITERATION, LEARNING_RATE);
     
