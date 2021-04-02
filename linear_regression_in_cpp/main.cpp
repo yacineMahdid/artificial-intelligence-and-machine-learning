@@ -17,6 +17,67 @@ class Dataset{
         // TODO: Why do we need to define the default constructor and destructor though?
         Dataset(){}
 
+        Dataset(const char* filename){
+            // Variable Initialization
+            length = 0;
+            number_predictor = 0;
+
+            int index = 0;
+
+            // Reading File to get the number of x and y data points
+            std::ifstream infile(filename);
+            std::string line;
+            while (std::getline(infile, line)){
+                length++;
+                // Calculate the number of predictors
+                if(length == 1){
+                    int i = 0;
+                    while(line[i] != '\0'){
+                        if(line[i] == ','){
+                            number_predictor++;
+                        }
+                        i++;
+                    }
+                }
+            }
+            infile.close();
+
+            // Mallocating space for X and y
+            X = (float **) malloc(sizeof(float*)*length);
+            for(int i = 0; i < length; i++){
+                X[i] = (float *) malloc(sizeof(float)*number_predictor);
+            }
+            y = (float *) malloc(sizeof(float)*length);
+
+            // Rereading the file to extract x and y values
+            char comma;
+            std::ifstream samefile(filename);
+            int current_index = 0;
+            while(std::getline(samefile,line)){
+
+                std::stringstream line_stream(line);
+                int current_predictor = 0;
+                float number;
+                while (line_stream >> number)
+                {
+                    if(current_predictor == number_predictor){
+                        y[current_index] = number;
+                    }
+                    else{
+                        X[current_index][current_predictor] = number;
+                        current_predictor++;
+                    }
+
+                    if(line_stream.peek() == ','){
+                        line_stream.ignore();
+                    }
+
+                }
+                current_index++;
+            }
+            samefile.close();
+        }
+
         Dataset(float **X_train,float *y_train, int length_train, int number_predictor_train){
             X = (float **) malloc(sizeof(float*)*length_train);
             for(int i = 0; i < length_train; i++){
@@ -46,73 +107,6 @@ class Dataset{
         }
 };
 
-
-// TODO: Refactor this to live directly inside the Dataset class
-Dataset read_csv(const char* filename){
-
-    // Variable Initialization
-    float **X;
-    float *y;
-    int index = 0;
-    int length = 0;
-    int number_predictor = 0;
-
-    // Reading File to get the number of x and y data points
-    std::ifstream infile(filename);
-    std::string line;
-    while (std::getline(infile, line)){
-        length++;
-        // Calculate the number of predictors
-        if(length == 1){
-            int i = 0;
-            while(line[i] != '\0'){
-                if(line[i] == ','){
-                    number_predictor++;
-                }
-                i++;
-            }
-        }
-    }
-    infile.close();
-
-    // Mallocating space for X and y
-    X = (float **) malloc(sizeof(float*)*length);
-    for(int i = 0; i < length; i++){
-        X[i] = (float *) malloc(sizeof(float)*number_predictor);
-    }
-    y = (float *) malloc(sizeof(float)*length);
-
-    // Rereading the file to extract x and y values
-    char comma;
-    std::ifstream samefile(filename);
-    int current_index = 0;
-    while(std::getline(samefile,line)){
-
-        std::stringstream line_stream(line);
-        int current_predictor = 0;
-        float number;
-        while (line_stream >> number)
-        {
-            if(current_predictor == number_predictor){
-                y[current_index] = number;
-            }
-            else{
-                X[current_index][current_predictor] = number;
-                current_predictor++;
-            }
-
-            if(line_stream.peek() == ','){
-                line_stream.ignore();
-            }
-
-        }
-        current_index++;
-    }
-    samefile.close();
-
-    Dataset data = Dataset(X,y,length,number_predictor);
-    return data;
-}
 
 // TODO: Remove the dataset class from this function to only accept nice primitives
 float sum_residual(Dataset data, float *y_pred, int current_predictor){
@@ -242,7 +236,7 @@ int main(){
     // Variable Initialization
     int length_train;
     std::cout << "Reading CSV file" << FILENAME << "\n";
-    Dataset data = read_csv(FILENAME);
+    Dataset data = Dataset(FILENAME);
 
     // Training
     std::cout << "Making LinearRegressionModel \n";
