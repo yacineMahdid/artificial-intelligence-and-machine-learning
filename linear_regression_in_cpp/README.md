@@ -48,7 +48,7 @@ The definition is
 
 ## Code Structure
 We currently have quite a lot of file that are scattered around in order to build the project.
-- `utils.cpp` + `utils.h`: contains helper functions and classes.
+- `math.cpp` + `math.h`: contains helper functions and classes for stats stuff.
 - `main.cpp`: main entry point of the program contain the definition of the model
 - `test.csv`: test data without any header
 - `a.out`: the compiled program with g++
@@ -56,12 +56,13 @@ We currently have quite a lot of file that are scattered around in order to buil
 ## How to Run
 To compile the program you need to use g++ and run the following commands:
 ```bash
-g++ main.cpp utils.cpp
+g++ main.cpp math.cpp
 ```
 This will create a `a.out` file which can be run like this: `./a.out`.
 This will run the main function inside `main.cpp`
 
 ## Comments and TODOs
+- [X] Rename utils.cpp and utils.h as math.cpp and math.h
 - [] Add C++ docstrings to each of the functions in utils.cpp
 - [] I'm trying to recreate pandas with the Dataset class which is not optimal. Should checkout if there is a better way to go about this.
 - [] A first run over the whole codebase for general refactoring would be beneficial
@@ -70,6 +71,7 @@ This will run the main function inside `main.cpp`
 - [] test.csv is a bit confusing to read since there is no header. The reading portion of the code shouldn't be too difficult to implement.
 - [] Output is all over the place when the program is running. Should tone that down.
 - [] Improve the testing of the algorithm after the training phase
+
 
 ## Ressources
 - [Main tutorial I've followed](https://towardsdatascience.com/introduction-to-machine-learning-algorithms-linear-regression-14c4e325882a)
