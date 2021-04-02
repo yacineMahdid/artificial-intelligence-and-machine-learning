@@ -62,6 +62,7 @@ This will create a `a.out` file which can be run like this: `./a.out`.
 This will run the main function inside `main.cpp`
 
 ## Comments and TODOs
+- [] move the prettifying of the weight into the Weights class
 - [] A first run over the whole main.cpp would be helpful
 - [] I'm trying to recreate pandas with the Dataset class which is not optimal. Should checkout if there is a better way to go about this.
 - [] test.csv is a bit confusing to read since there is no header. The reading portion of the code shouldn't be too difficult to implement.

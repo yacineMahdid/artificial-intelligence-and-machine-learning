@@ -128,6 +128,28 @@ class Weights{
             }
             return total;
         }
+
+        // Pretty print the weights of the model
+        void print_weights(){
+            char function_string[1000];
+            printf("Number weights = %d\n", number_weights);
+            strcpy(function_string, "y = ");
+
+            for(int i = 0; i < number_weights; i++){
+                printf("Weights %d is = %f\n",i, values[i]);
+
+                char weight[20];
+                sprintf(weight,"%.2f * x%d", values[i],i);
+                strcat(function_string, weight);
+
+                if(i == number_weights-1){
+                    strcat(function_string,"\n");
+                }else{
+                    strcat(function_string," + ");
+                }
+            }
+            printf("%s\n",function_string);
+        }
 };
 
 // Model class for Linear Regression
@@ -152,26 +174,9 @@ class LinearRegressionModel{
             weights.init(number_predictor, 0);
         }
 
-        // Pretty print the weights of the model
+        // wrapper around the weights print weight function
         void print_weights(){
-            char function_string[1000];
-            printf("Number weights = %d\n",weights.number_weights);
-            strcpy(function_string, "y = ");
-
-            for(int i = 0; i < weights.number_weights; i++){
-                printf("Weights %d is = %f\n",i,weights.values[i]);
-
-                char weight[20];
-                sprintf(weight,"%.2f * x%d",weights.values[i],i);
-                strcat(function_string, weight);
-
-                if(i == weights.number_weights-1){
-                    strcat(function_string,"\n");
-                }else{
-                    strcat(function_string," + ");
-                }
-            }
-            printf("%s\n",function_string);
+            weights.print_weights();
         }
 
         void train(int max_iteration, float learning_rate){
@@ -186,7 +191,7 @@ class LinearRegressionModel{
                 float mse = mean_squared_error(y_pred, y, length);
 
                 if(max_iteration % 100 == 0){
-                    print_weights();
+                    weights.print_weights();
                     std::cout << "Iteration left: " << max_iteration << "; MSE = " << mse << "\n";
                 }
                 max_iteration--;
