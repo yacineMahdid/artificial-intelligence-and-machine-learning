@@ -62,12 +62,8 @@ This will create a `a.out` file which can be run like this: `./a.out`.
 This will run the main function inside `main.cpp`
 
 ## Comments and TODOs
-- [X] Rename utils.cpp and utils.h as math.cpp and math.h
-- [] Add C++ docstrings to each of the functions in utils.cpp
 - [] I'm trying to recreate pandas with the Dataset class which is not optimal. Should checkout if there is a better way to go about this.
 - [] A first run over the whole codebase for general refactoring would be beneficial
-- [] Dataset.cpp doesn't seem to be that useful, removing this abstraction might be beneficial.
-- [] Weights.cpp also seems to be quite overkill for the complexity that we have. Will have to double check that, but there might be a way to compress that.
 - [] test.csv is a bit confusing to read since there is no header. The reading portion of the code shouldn't be too difficult to implement.
 - [] Output is all over the place when the program is running. Should tone that down.
 - [] Improve the testing of the algorithm after the training phase
@@ -76,3 +72,4 @@ This will run the main function inside `main.cpp`
 ## Ressources
 - [Main tutorial I've followed](https://towardsdatascience.com/introduction-to-machine-learning-algorithms-linear-regression-14c4e325882a)
 - [Google Style Guide for C++](https://google.github.io/styleguide/cppguide.html#Function_Comments)
+- [Better way to calculate variance](https://www.sciencebuddies.org/science-fair-projects/science-fair/variance-and-standard-deviation)
