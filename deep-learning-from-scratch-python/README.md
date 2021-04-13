@@ -6,3 +6,7 @@ I am sporadically coding more components in, so far here are what we managed to 
 - Mini-Batch Gradient Descent
 - Perceptron
 - Multi-layer-perceptron (with forward and backward pass)
+
+
+## Notes
+- For docstring we are using [Google](https://github.com/google/styleguide/blob/gh-pages/pyguide.md#38-comments-and-docstrings) format
