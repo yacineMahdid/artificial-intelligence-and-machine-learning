@@ -50,3 +50,82 @@ class GD(_Optimizer):
         for weight, grad in zip(self.weights, self.grads):
             weight -= self.learning_rate*grad
 
+class GDMomentum(_Optimizer):
+
+    # TODO
+    def __init__(self):
+        super.__init__(self)
+
+    # TODO
+    def step(self):
+        pass
+
+class Adagrad(_Optimizer):
+
+    # TODO
+    def __init__(self):
+        super.__init__(self)
+
+    # TODO
+    def step(self):
+        pass
+
+class RMSProp(_Optimizer):
+
+    # TODO
+    def __init__(self):
+        super.__init__(self)
+
+    # TODO
+    def step(self):
+        pass
+
+class Adadelta(_Optimizer):
+
+    # TODO
+    def __init__(self):
+        super.__init__(self)
+
+    # TODO
+    def step(self):
+        pass
+
+class Adam(_Optimizer):
+
+    # TODO
+    def __init__(self):
+        super.__init__(self)
+
+    # TODO
+    def step(self):
+        pass
+
+class Nesterov(_Optimizer):
+
+    # TODO
+    def __init__(self):
+        super.__init__(self)
+
+    # TODO
+    def step(self):
+        pass
+
+class Adamax(_Optimizer):
+
+    # TODO
+    def __init__(self):
+        super.__init__(self)
+
+    # TODO
+    def step(self):
+        pass
+
+class Nadam(_Optimizer):
+
+    # TODO
+    def __init__(self):
+        super.__init__(self)
+
+    # TODO
+    def step(self):
+        pass
